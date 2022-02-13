@@ -1,0 +1,72 @@
+@mixin sidebar-link {
+  padding-left: 19px;
+  color: $greySidebar;
+  font-weight: 700;
+  font-size: 15px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.sidebar {
+  position: relative;
+  height: 100vh;
+  width: 295px;
+  background-color: white;
+
+  @media (max-width: 764px) {
+    display: none;
+  }
+
+  .user-top {
+    padding: 92px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .user-image {
+      border-radius: 50%;
+    }
+
+    .user-name {
+      margin-top: 18px;
+      text-align: center;
+      font-size: 18px;
+      font-weight: 500;
+
+      img {
+        padding-left: 10px !important;
+      }
+    }
+  }
+
+  .sidebar-links {
+    padding: 0 38px;
+
+    .links {
+      padding-bottom: 38px;
+      display: flex;
+      align-items: center;
+
+      img {
+        vertical-align: middle !important;
+      }
+
+      .link {
+        @include sidebar-link();
+      }
+    }
+  }
+
+  .sidebar-disconnect-link {
+    display: flex;
+    align-items: center;
+    padding: 0 38px;
+    position: absolute;
+    bottom: 50px;
+
+    .link {
+      @include sidebar-link();
+    }
+  }
+}

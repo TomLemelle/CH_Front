@@ -1,0 +1,70 @@
+.home {
+  height: 100vh;
+  max-width: 75%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .index-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+      font-style: normal;
+      font-weight: bold;
+      font-size: 96px;
+      color: #000000;
+      text-align: center;
+      span {
+        color: $blue;
+      }
+    }
+
+    p {
+      text-transform: uppercase;
+      font-size: 22px;
+      font-weight: normal;
+      letter-spacing: 1px;
+      text-align: center;
+    }
+
+    .log-with-g {
+      color: white;
+      text-transform: uppercase;
+
+      a {
+        text-align: center;
+        font-weight: normal;
+      }
+    }
+
+    .register {
+      padding: 16px 100px;
+      font-size: 18px;
+      border-radius: 12px;
+      background-color: $blue;
+      a {
+        font-size: 32px;
+        color: white;
+      }
+    }
+
+    .register-li {
+      padding-bottom: 0;
+    }
+
+    .last-li-home {
+      margin-top: 25px;
+      text-decoration: underline;
+      font-size: 15px;
+
+      .login {
+        color: $black;
+        font-weight: 500;
+      }
+    }
+  }
+}
