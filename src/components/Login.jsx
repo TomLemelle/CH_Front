@@ -14,6 +14,7 @@ const Login = (props, ref) => {
         try {
             const response = await login(data)
             await getUserInfo(getToken().split('"').join(""))
+            console.log(response);
             setIsAuthenticated(response);
             if(isAuthenticated) navigate('/profile')
         } catch ({ response }) {

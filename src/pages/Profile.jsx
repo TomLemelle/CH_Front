@@ -4,6 +4,7 @@ import { getJWT, decodeJWT, getUserInfo, updateUserInfo } from "../Utils/Api/Aut
 import axios from "axios"
 import { getToken, getUserData } from "../Utils/Api/LocalStorage"
 import { useForm } from 'react-hook-form'
+import Sidebar from "../components/Sidebar"
 
 export default function Profile () {
 
@@ -12,7 +13,8 @@ export default function Profile () {
     const { register, handleSubmit, formState: { errors } } = useForm()
     const onSubmit = async data => {
         try {
-            const response = await updateUserInfo(user.id, data, getToken())
+            const token = getToken().split('"').join('"');
+            const response = await updateUserInfo(user.id, data, token)
             console.log(response);
         } catch ({ response }) {
             console.log(response)
@@ -39,11 +41,6 @@ export default function Profile () {
                 </thead>
                 <tbody>
                     <tr>
-                        {Object.values(user).map(user => (
-                            <td>{user}</td>
-                        ))}
-                    </tr>
-                     <tr>
                         {Object.values(user).map(user => (
                             <td>{user}</td>
                         ))}

@@ -12,6 +12,7 @@
   height: 100vh;
   width: 295px;
   background-color: white;
+  border-right: 1px solid $greySidebar;
 
   @media (max-width: 764px) {
     display: none;
@@ -35,7 +36,7 @@
       font-weight: 500;
 
       img {
-        padding-left: 10px !important;
+        margin-left: 10px !important;
       }
     }
   }
@@ -54,6 +55,9 @@
 
       .link {
         @include sidebar-link();
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
       }
     }
   }
@@ -67,6 +71,12 @@
 
     .link {
       @include sidebar-link();
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
+    .link-ative {
+      color: $blue;
     }
   }
 }

@@ -1,11 +1,14 @@
 import axios from "axios";
 import jwtDecode from "jwt-decode";
-import { setToken, setUserData } from "./LocalStorage";
+import { getToken, setToken, setUserData } from "./LocalStorage";
 
 const config = {
-  "Content-Type": "application/json",
-  Accept: "application/json",
+  headers: {
+    Authorization: `Bearer ${getToken()}`,
+    "Content-Type": "application/merge-patch+json",
+  },
 };
+
 const URLApi = "http://127.0.0.1:8000/api/";
 export function hasAuthenticated() {
   const token = window.localStorage.getItem("chrouvrayToken");
@@ -29,7 +32,10 @@ export function login(credentials) {
 export function createUser(credentials) {
   return axios
     .post(URLApi + "users", credentials, {
-      headers: config,
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
     })
     .then((res) => {
       console.log("Account created !", res.data);
@@ -73,19 +79,16 @@ export function getUserInfo(token) {
 }
 
 export function updateUserInfo(id, data, token) {
-  return axios
-    .patch(URLApi + `users/${id}`, {
-      data,
-      headers: {
-        "Content-Type": "merge-patch+json",
-        Accept: "merge-patch+json",
-        Authorization: "bearer " + token.split('"').join(""),
-        "Access-Control-Allow-Origin": "*",
-      },
-    })
-    .then((response) => response.data)
-    .then((data) => {
-      console.log(data);
-      setUserData(data);
-    });
+  var config = {
+    method: "patch",
+    url: `http://127.0.0.1:8000/api/users/${id}`,
+    headers: {
+      "Content-Type": "application/merge-patch+json",
+      Accept: "application/json",
+      Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2NDQ3NjI0MzMsImV4cCI6MTY0NDc2NjAzMywicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoiRU5DT1JFREVWQERFVi5DT00ifQ.BpUT7p0_c9QzES8yyT97Q0hfgNxLSPVkBuxlTaI6z1KyKu4Ro42gH-Wfv3ZL2vPAjJ8hhTL3at3yJmVFRjimtAkOd6bIFxFo7MDS-Jy46DGvtQBWNK6I6Df5yakksKudfIdjLZJe_xlASZvzNecdwF4lWNcjxwGH3QkdT3N71MRnKY9_MJwq2yAJGgnVwibEejSPo6AYtT04jFlf4_cfQgAoCBdxRXXdAGPOijB70YU8KL644JlM2iCz3Wx4VDMmrmpkVwKL1-DKbpFTQy7VbEacsj24OR5dYdLG9JXx98hWUbr9P1manU1IfL0BL7EcOHkbuz7lZkl4TcGqfcOaecEswxoqjWLuPgQjo1SKzCAC70YyUjlRrTaZa3jmyhQfxDhYOxmGPYjPP9Tdk1cFt5VuoOfy9NmQhSHuKeSOimjboJ4xqY5yhII12CIMywZASnT_WcCTRkTSOUC5kOd8lSyNtCfqXJShx9Uq3G-HF6QAM0-O95h62Iz7TjCSJQqRd3QU0okbfHzUkVYjMvRDDW_uC02KpesI2ABI8CycsAyOPkkW-I5LBWeFqBh2apZ8DWfqfz8qT2IRCk7YvXjzGyLmOHurRuEwdWnu3KUam5jlt-ZcyB9eSKo7qw-v3T0LtXkuehLxFCGBwBsZfsQNIN05iScuQp-5zLxL_0Bqysg`,
+    },
+    data: JSON.stringify(data),
+  };
+
+  axios(config).then((res) => console.log(JSON.stringify(res.data)));
 }

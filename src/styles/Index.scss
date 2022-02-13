@@ -18,6 +18,13 @@
       font-size: 96px;
       color: #000000;
       text-align: center;
+      transition: all 250ms ease-in-out;
+      @media (max-width: 1000px) {
+        font-size: 65px;
+      }
+      @media (max-width: 768px) {
+        font-size: 40px;
+      }
       span {
         color: $blue;
       }

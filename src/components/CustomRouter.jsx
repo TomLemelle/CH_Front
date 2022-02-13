@@ -4,6 +4,8 @@ import NotFound from '../pages/NotFound';
 import Index from '../pages/Index';
 import Profile from '../pages/Profile';
 import RouteGuard from './RouteGuard';
+import Upload from '../pages/Upload';
+import Post from '../pages/Post';
 
 const CustomRouter = () => {
     return (
@@ -16,6 +18,22 @@ const CustomRouter = () => {
                         element={
                             <RouteGuard>
                                 <Profile />
+                            </RouteGuard>
+                        }
+                    />
+                    <Route 
+                        path="/upload"
+                        element={
+                            <RouteGuard>
+                                <Upload />
+                            </RouteGuard>
+                        }
+                    />
+                    <Route 
+                        path="/post"
+                        element={
+                            <RouteGuard>
+                                <Post />
                             </RouteGuard>
                         }
                     />
