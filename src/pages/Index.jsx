@@ -49,7 +49,7 @@ export default function Index() {
         <section className='home'>
             <ul className='index-page'>
                 <li className='p-b-85'>
-                    <h1>CENTRE HOSPITALLIER DU <span>ROUVRAY</span></h1>
+                    <h1>CENTRE HOSPITALIER DU <span>ROUVRAY</span></h1>
                 </li>
                 <li className='p-tb-85'>
                     <p>

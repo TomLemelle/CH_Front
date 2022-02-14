@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form'
 import { getUserInfo, login } from '../Utils/Api/AuthApi'
 import Auth from "../context/Auth"
 import { useNavigate } from 'react-router-dom'
-import { getToken } from '../Utils/Api/LocalStorage'
+import { getToken, setToken } from '../Utils/Api/LocalStorage'
 
 const Login = (props, ref) => {
 
@@ -13,6 +13,7 @@ const Login = (props, ref) => {
     const onSubmit = async data => {
         try {
             const response = await login(data)
+            console.log(response)
             await getUserInfo(getToken().split('"').join(""))
             console.log(response);
             setIsAuthenticated(response);

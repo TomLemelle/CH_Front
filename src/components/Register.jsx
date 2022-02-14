@@ -13,7 +13,6 @@ const Register = ({children, onClick}, ref) => {
             console.log(data);
             data.roles = ['ROLE_USER']
             await createUser(data)
-            setIsAuthenticated(true);
         } catch ({ response }) {
             console.log(response)
         }

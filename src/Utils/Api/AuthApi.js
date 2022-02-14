@@ -9,7 +9,14 @@ const config = {
   },
 };
 
-const URLApi = "http://127.0.0.1:8000/api/";
+const configbis = {
+  headers: {
+    Accept: "application/json",
+    "Content-Type": "application/json",
+  },
+};
+
+const   URLApi = "https://127.0.0.1:8000/api/";
 export function hasAuthenticated() {
   const token = window.localStorage.getItem("chrouvrayToken");
   const result = token ? tokenIsValid(token) : false;
@@ -24,8 +31,8 @@ export function login(credentials) {
     .post(URLApi + "authentication_token", credentials)
     .then((response) => response.data)
     .then((res) => {
-      console.log(res);
-      setToken(res.token);
+      console.log('Logged in!', res.token)
+      setToken(res.token)
     });
 }
 
@@ -34,7 +41,7 @@ export function createUser(credentials) {
     .post(URLApi + "users", credentials, {
       headers: {
         "Content-Type": "application/json",
-        Accept: "application/json",
+        "Accept": "application/json"
       },
     })
     .then((res) => {
@@ -64,18 +71,18 @@ export function decodeJWT(token) {
 }
 
 export function getUserInfo(token) {
-  return axios
-    .get(URLApi + `me`, {
+    return axios
+    .get(URLApi + "me", {
       headers: {
-        Accept: "application/json",
-        Authorization: "bearer " + token,
+        'Authorization': `Bearer ${token}`,
+        "Content-Type": "application/json",
+        Accept: "application/json"
       },
     })
-    .then((response) => response.data)
-    .then((data) => {
-      console.log(data);
-      setUserData(data);
-    });
+    .then((res) => {
+      console.log('user data fetched !', res)
+      setUserData(res.data)
+    })
 }
 
 export function updateUserInfo(id, data, token) {
