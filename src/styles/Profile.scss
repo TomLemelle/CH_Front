@@ -1,16 +1,134 @@
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
+.profile {
+  display: flex;
+
+  .content-wrapper {
+    flex: 1;
+    width: 100%;
+    padding: 85px 85px 60px 85px;
+
+    .profile-hello {
+      margin-bottom: 1.25rem;
+    }
+
+    .profile-herobanner {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      -webkit-box-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      align-items: center;
+      height: 14rem;
+      text-align: center;
+      color: rgb(255, 255, 255);
+      background-color: $blue;
+      transition: all 250ms ease-in-out;
+
+      &:hover {
+        background-color: darken($blue, 10%);
+      }
+
+      .profile-img {
+        position: absolute;
+        left: 2.2rem;
+        bottom: -3.2rem;
+        width: 140px;
+        height: auto;
+        cursor: pointer;
+
+        img {
+          width: 100%;
+          border-radius: 50%;
+          border: 5px solid white;
+          transition: all 250ms ease-in-out;
+
+          &:hover {
+            transform: scale(1.05);
+          }
+        }
+      }
+
+      .profile-info-herobanner {
+        h1,
+        span {
+          display: block;
+          margin: 0.625rem 0;
+        }
+      }
+    }
+  }
+
+  .profile-data-form {
+    margin-top: 8rem;
+    width: 100%;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      justify-content: stretch;
+
+      input,
+      div {
+        margin: 1rem 0;
+        font-family: "Montserrat", sans-serif;
+        height: 50px;
+        text-align: left;
+        padding: 0 15px;
+        border-radius: 6px;
+        border: 1px solid $blue;
+        font-size: 12px;
+        font-weight: normal;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        outline: none;
+        transition: all 250ms ease-in-out;
+
+        &:hover {
+          border-color: black;
+        }
+
+        &::placeholder {
+          color: black;
+        }
+        &:focus {
+          border: 1px solid $blue;
+        }
+      }
+
+      .profile-form-btn {
+        display: flex;
+        justify-content: center;
+        height: 51px;
+        background-color: $blue;
+        color: white;
+        text-transform: uppercase;
+        border: none;
+        border-radius: 6px;
+        font-size: 12px;
+        text-align: center;
+        letter-spacing: 1px;
+        margin-bottom: 3px;
+        cursor: pointer;
+        transition: all 250ms ease-in-out;
+
+        &:hover {
+          background-color: darken($blue, 10%);
+        }
+      }
+
+      button {
+        background-color: transparent;
+        border: none;
+        font-size: 16px;
+        color: white;
+      }
+    }
+  }
 }
 
-td,
-th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
+.edit-profil-show {
+  display: block;
 }
-
-tr:nth-child(even) {
-  background-color: #dddddd;
+.edit-profil-hide {
+  display: none;
 }

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import NotFound from '../pages/NotFound';
 import Index from '../pages/Index';
 import Profile from '../pages/Profile';
+import EditProfileForm from '../components/EditProfileForm';
 import RouteGuard from './RouteGuard';
 import Upload from '../pages/Upload';
 import Post from '../pages/Post';
@@ -18,6 +19,14 @@ const CustomRouter = () => {
                         element={
                             <RouteGuard>
                                 <Profile />
+                            </RouteGuard>
+                        }
+                    />
+                    <Route 
+                        path="/profile/edit"
+                        element={
+                            <RouteGuard>
+                                <EditProfileForm />
                             </RouteGuard>
                         }
                     />

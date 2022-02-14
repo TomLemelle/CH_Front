@@ -65,16 +65,16 @@ export function decodeJWT(token) {
 
 export function getUserInfo(token) {
   return axios
-    .get(URLApi + `me`, {
+    .get(URLApi + "me", {
       headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
         Accept: "application/json",
-        Authorization: "bearer " + token,
       },
     })
-    .then((response) => response.data)
-    .then((data) => {
-      console.log(data);
-      setUserData(data);
+    .then((res) => {
+      console.log("user data fetched !", res);
+      setUserData(res.data);
     });
 }
 

@@ -25,6 +25,11 @@ const Sidebar = () => {
         setUser(JSON.parse(getUserData()))
     }, [])
 
+    const capitalize = (s) => {
+        if (typeof s !== 'string') return ''
+        return s.charAt(0).toUpperCase() + s.slice(1)
+    }
+
     return (
         <section className="sidebar">
             <div className="user-top">
@@ -32,7 +37,7 @@ const Sidebar = () => {
                 
                 <div className='user-name'>
                 <NavLink component={Profile} to="/profile" activeClassName="link-active">
-                    {user.firstName} {user.lastName} <img src='/assets/chevron-down.png' alt='icon chevron vers le bas' width={13} height={7} />
+                    {capitalize(user.firstName)} {capitalize(user.lastName)} <img src='/assets/chevron-down.png' alt='icon chevron vers le bas' width={13} height={7} />
                 </NavLink>
                 </div>
             </div>

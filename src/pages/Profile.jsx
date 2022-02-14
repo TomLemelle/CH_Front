@@ -1,8 +1,7 @@
-import { useContext, useEffect, useState } from "react"
-import Auth from "../context/Auth"
-import { getJWT, decodeJWT, getUserInfo, updateUserInfo } from "../Utils/Api/AuthApi"
-import axios from "axios"
-import { getToken, getUserData } from "../Utils/Api/LocalStorage"
+import ProfileForm from "../components/ProfileForm"
+import ProfileHeroBanner from "../components/ProfileHeroBanner"
+import AsyncLocalStorage from '@createnextapp/async-local-storage'
+import { useEffect, useState } from "react"
 import { useForm } from 'react-hook-form'
 import Sidebar from "../components/Sidebar"
 
@@ -11,63 +10,31 @@ export default function Profile () {
     const [user, setUser] = useState([])
 
     const { register, handleSubmit, formState: { errors } } = useForm()
-    const onSubmit = async data => {
+    const onSubmit = async data => console.log(data)
+
+    const storeData = async () => {
         try {
-            const token = getToken().split('"').join('"');
-            const response = await updateUserInfo(user.id, data, token)
-            console.log(response);
-        } catch ({ response }) {
-            console.log(response)
+            let getItem = await AsyncLocalStorage.getItem('user');
+            setUser(JSON.parse(getItem))
+        } catch(e) {
+            console.error('error: ', e)
         }
     }
 
     useEffect(() => {
-        setUser(JSON.parse(getUserData()))
+        (async () => await storeData())();
     }, [])
-
 
     return (
         <section className="profile">
-            <h1>Profile</h1>
-            <table>
-                <thead>
-                    <tr>
-                        <th>id</th>
-                        <th>email</th>
-                        <th>role</th>
-                        <th>first name</th>
-                        <th>last name</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        {Object.values(user).map(user => (
-                            <td>{user}</td>
-                        ))}
-                    </tr>
-                </tbody>
-            </table>
-
-            <form className='form-wrapper' onSubmit={handleSubmit(onSubmit)}>
-
-            <input 
-                {...register('email', { required: 'Ce champ est obligatoire'})}
-                placeholder='Email'
-                className='form-fields'
-            />
-            <input 
-                {...register('firstName', { required: 'Ce champ est obligatoire'})}
-                placeholder='Prénom'
-                className='form-fields'
-            />
-            <input 
-                {...register('lastName', { required: 'Ce champ est obligatoire'})}
-                placeholder='Nom de famille'
-                className='form-fields'
-            />
-            <button type='submit' className='form-submit-field'>Modifier</button>
-            </form>
-
+            <Sidebar />
+            <div className="content-wrapper">
+                <ProfileHeroBanner {...user}/>
+                <div className="profile-data-form">
+                    <ProfileForm {...user}/>                    
+                </div>
+            </div>
+            
         </section>
     )
 }
