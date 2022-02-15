@@ -81,7 +81,7 @@ export function getUserInfo(token) {
 export function updateUserInfo(id, data, token) {
   var config = {
     method: "patch",
-    url: `http://127.0.0.1:8000/api/users/${id}`,
+    url: `https://127.0.0.1:8000/api/users/${id}`,
     headers: {
       "Content-Type": "application/merge-patch+json",
       Accept: "application/json",

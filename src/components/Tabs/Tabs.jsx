@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import UploadFile from './Tabs/UploadFile';
-import SeeFile from './Tabs/SeeFile';
+import UploadFile from './UploadFile';
+import SeeFile from './SeeFile';
 
 const Tabs = (props) => {
 

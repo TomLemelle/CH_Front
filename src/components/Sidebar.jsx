@@ -36,7 +36,7 @@ const Sidebar = () => {
                 <img className='user-image' src='/assets/user-face.png' alt='user' width={86} height={86}/>
                 
                 <div className='user-name'>
-                <NavLink component={Profile} to="/profile" activeClassName="link-active">
+                <NavLink component={Profile} to="/profile">
                     {capitalize(user.firstName)} {capitalize(user.lastName)} <img src='/assets/chevron-down.png' alt='icon chevron vers le bas' width={13} height={7} />
                 </NavLink>
                 </div>
@@ -45,31 +45,31 @@ const Sidebar = () => {
             <ul className="sidebar-links">
                 <li className="links">
                     <img src='/assets/postes.png' alt='icon poste' width={24} height={24} />
-                    <NavLink component={Index} to="/posts" activeClassName="link-active">
+                    <NavLink component={Index} to="/posts">
                         <button className='link'>Postes / Annonces</button>
                     </NavLink>
                 </li>
                 <li className="links">
                     <img src='/assets/bell.png' alt='icon notification' width={24} height={24} />
-                    <NavLink component={Index} to="/notifications" activeClassName="link-active">
+                    <NavLink component={Index} to="/notifications">
                         <button className='link'>Notifications</button>
                     </NavLink>
                 </li>
                 <li className="links">
                     <img src='/assets/upload.png' alt='icon upload' width={24} height={24} />
-                    <NavLink component={Upload} to="/upload" activeClassName="link-active">
+                    <NavLink component={Upload} to="/upload">
                         <button className='link'>Déposer un fichier</button>
                     </NavLink>
                 </li>
                 <li className="links">
                     <img src='/assets/messagerie.png' alt='icon messagerie' width={24} height={24} />
-                    <NavLink component={Index} to="/messaging" activeClassName="link-active">
+                    <NavLink component={Index} to="/messaging">
                         <button className='link'>Messagerie</button>
                     </NavLink>
                 </li>
                 <li className="links">
                     <img src='/assets/calendar.png' alt='icon calendrier' width={24} height={24} />
-                    <NavLink component={Index} to="/calendar" activeClassName="link-active">
+                    <NavLink component={Index} to="/calendar">
                         <button className='link'>Calendrier</button>
                     </NavLink>
                 </li>

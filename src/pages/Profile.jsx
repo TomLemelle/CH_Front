@@ -1,5 +1,5 @@
-import ProfileForm from "../components/ProfileForm"
-import ProfileHeroBanner from "../components/ProfileHeroBanner"
+import ProfileForm from "../components/Profile/ProfileForm"
+import ProfileHeroBanner from "../components/Profile/ProfileHeroBanner"
 import AsyncLocalStorage from '@createnextapp/async-local-storage'
 import { useEffect, useState } from "react"
 import { useForm } from 'react-hook-form'
@@ -12,7 +12,7 @@ export default function Profile () {
     const { register, handleSubmit, formState: { errors } } = useForm()
     const onSubmit = async data => console.log(data)
 
-    const storeData = async () => {
+    const getData = async () => {
         try {
             let getItem = await AsyncLocalStorage.getItem('user');
             setUser(JSON.parse(getItem))
@@ -22,7 +22,7 @@ export default function Profile () {
     }
 
     useEffect(() => {
-        (async () => await storeData())();
+        (async () => await getData())();
     }, [])
 
     return (

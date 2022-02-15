@@ -1,9 +1,9 @@
 import { forwardRef, useContext } from 'react'
 import { useForm } from 'react-hook-form'
-import { getUserInfo, login } from '../Utils/Api/AuthApi'
-import Auth from "../context/Auth"
+import { getUserInfo, login } from '../../Utils/Api/AuthApi'
+import Auth from "../../context/Auth"
 import { useNavigate } from 'react-router-dom'
-import { getToken } from '../Utils/Api/LocalStorage'
+import { getToken } from '../../Utils/Api/LocalStorage'
 
 const Login = (props, ref) => {
 
@@ -28,7 +28,7 @@ const Login = (props, ref) => {
             {props.children}
 
             <div className='google-field'>
-                <a href="#"><img src='/assets/google-icon.png' alt='google icon' style={{ paddingRight: '5px' }} />Continuer avec google</a>
+                <a href="google.com"><img src='/assets/google-icon.png' alt='google icon' style={{ paddingRight: '5px' }} />Continuer avec google</a>
             </div>
 
             <div className='ou-field'>ou</div>

@@ -53,6 +53,13 @@
       font-size: 18px;
       border-radius: 12px;
       background-color: $blue;
+      cursor: pointer;
+      border: none;
+      transition: all 250ms ease-in-out;
+
+      &:hover {
+        background-color: darken($blue, 10%);
+      }
       a {
         font-size: 32px;
         color: white;
@@ -64,13 +71,17 @@
     }
 
     .last-li-home {
-      margin-top: 25px;
+      margin-top: 10px;
       text-decoration: underline;
       font-size: 15px;
 
       .login {
         color: $black;
         font-weight: 500;
+        border: none;
+        border-bottom: 1px solid black;
+        background-color: transparent;
+        cursor: pointer;
       }
     }
   }

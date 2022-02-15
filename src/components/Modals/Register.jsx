@@ -1,7 +1,7 @@
 import { forwardRef, useContext, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import Auth from '../context/Auth'
-import { createUser } from '../Utils/Api/AuthApi'
+import Auth from '../../context/Auth'
+import { createUser } from '../../Utils/Api/AuthApi'
 
 const Register = ({children, onClick}, ref) => {
 
@@ -27,7 +27,7 @@ const Register = ({children, onClick}, ref) => {
             {children}
 
             <div className='google-field' onClick={() => console.log('cc')}>
-                <a href="#"><img src='/assets/google-icon.png' alt='google icon' style={{ paddingRight: '5px' }} />Continuer avec google</a>
+                <a href="google.com"><img src='/assets/google-icon.png' alt='google icon' style={{ paddingRight: '5px' }} />Continuer avec google</a>
             </div>
 
 

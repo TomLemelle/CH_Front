@@ -1,6 +1,6 @@
-import Register from '../components/Register'
-import Login from '../components/Login'
-import CloseModal from '../components/CloseModal'
+import Register from '../components/Modals/Register'
+import Login from '../components/Modals/Login'
+import CloseModal from '../components/Modals/CloseModal'
 
 import { useEffect, useRef, useState } from 'react/cjs/react.development'
 import { useContext } from 'react'
@@ -58,10 +58,10 @@ export default function Index() {
                     </p>
                 </li>
                 <li className='p-tb-85 register-li' style={{cursor: 'pointer'}} onClick={(e) => handleClick(e)}>
-                    <a className="log-with-g register">S&apos;inscrire</a>
+                    <button className="log-with-g register">S&apos;inscrire</button>
                 </li>
                 <li className='last-li-home' style={{cursor: 'pointer'}} onClick={(e) => handleClick(e)}>
-                    <a className="log-with-g login">Déjà un compte ?</a>
+                    <button className="log-with-g login">Déjà un compte ?</button>
                 </li>
             </ul>
 

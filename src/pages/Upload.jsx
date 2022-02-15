@@ -1,5 +1,5 @@
 import Sidebar from '../components/Sidebar'
-import Tabs from '../components/Tabs';
+import Tabs from '../components/Tabs/Tabs';
 
 export default function Upload() {
 

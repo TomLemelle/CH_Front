@@ -1,6 +1,3 @@
-import { useEffect, useState } from "react"
-import AsyncLocalStorage from '@createnextapp/async-local-storage'
-
 const ProfileHeroBanner = (props) => {
 
     const capitalize = (s) => {

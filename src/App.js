@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./styles/main.scss";
 import { hasAuthenticated } from "./Utils/Api/AuthApi";
 import Auth from "./context/Auth";
-import CustomRouter from "./components/CustomRouter";
+import CustomRouter from "./components/Routes/CustomRouter";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(hasAuthenticated());
